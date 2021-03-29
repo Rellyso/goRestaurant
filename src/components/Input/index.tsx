@@ -13,8 +13,8 @@ import { IconType } from 'react-icons';
 
 interface InputProps {
   name: string;
-  Icon: IconType; // qual é a tipagem para ícones?
-  rest: JSX.IntrinsicElements["input"];
+  Icon?: IconType; // qual é a tipagem para ícones?
+  placeholder: string;
 }
 
 export function Input({ name, Icon, ...rest }: InputProps) {
