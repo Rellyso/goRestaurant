@@ -2,10 +2,17 @@ import { Component, createRef, useState } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 
 import { Form } from './styles';
-import Modal from '../Modal';
+import { Modal } from '../Modal';
 import { Input } from '../Input';
 
-export function ModalEditFood() {
+
+interface ModalEditFoodProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+  handleSubmit: (data: JSX.Element) => void;
+}
+
+export function ModalEditFood({ setIsOpen, isOpen, handleSubmit }: ModalEditFoodProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   async function handleSubmit(data) {
@@ -15,7 +22,7 @@ export function ModalEditFood() {
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <Form ref={this.formRef} onSubmit={this.handleSubmit} initialData={editingFood}>
+      <Form ref={formRef} onSubmit={handleSubmit} initialData={editingFood}>
         <h1>Editar Prato</h1>
         <Input name="image" placeholder="Cole o link aqui" />
 
