@@ -22,6 +22,7 @@ export function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
 
+  console.log(editModalOpen)
 
   useEffect(() => {
     async function getData() {
@@ -87,7 +88,7 @@ export function Dashboard() {
 
   function handleEditFood(food: Food) {
     setEditingFood(food)
-    setModalOpen(true)
+    setEditModalOpen(true)
   }
 
   return (

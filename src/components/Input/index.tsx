@@ -19,6 +19,7 @@ interface InputProps {
 
 export function Input({ name, Icon, ...rest }: InputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isFilled, setIsFilled] = useState<boolean>(false);
 
@@ -32,7 +33,7 @@ export function Input({ name, Icon, ...rest }: InputProps) {
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
 
-    setIsFilled(!inputRef.current?.value);
+    setIsFilled(!!inputRef.current?.value);
   }, []);
 
   useEffect(() => {
